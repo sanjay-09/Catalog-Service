@@ -43,8 +43,25 @@ dependencies {
 	testImplementation 'org.testcontainers:testcontainers-junit-jupiter'
 	testImplementation 'org.testcontainers:testcontainers-postgresql'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:3.1.1'
+    testImplementation 'io.rest-assured:rest-assured:6.0.0'
 }
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+
+gitProperties {
+    keys = [
+            'git.branch',
+            'git.commit.id',
+            'git.commit.id.abbrev',
+            'git.commit.time',
+            'git.dirty'
+    ]
+}
+
+tasks.named('test') {
+    systemProperty 'user.timezone', 'Asia/Kolkata'
 }
