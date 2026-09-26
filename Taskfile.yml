@@ -1,0 +1,23 @@
+version: '3'
+
+tasks:
+
+  build:
+    desc: Build the application
+    cmds:
+      - gradlew.bat clean build
+
+  test:
+    desc: Run tests
+    cmds:
+      - .\gradlew test
+
+  run:
+    desc: Start Spring Boot
+    cmds:
+      - gradlew.bat bootRun
+
+  infra-start:
+    desc: To run postgres container
+    cmds:
+      - docker compose -f deployment/infra.yml up -d
